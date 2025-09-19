@@ -1,6 +1,7 @@
 name: qwq
 on:
   push:
+  issue:
 
 jobs:
   worker:
