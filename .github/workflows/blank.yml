@@ -26,7 +26,7 @@ jobs:
         
         choco install 7zip
         7z x bin.zip -oD:\a\_temp\
-        cd "D:\a\_temp\ocr\"
+        cd "D:\a\_temp\"
         cmd /c ".\Cheese.Ocr4399.exe"
 
         curl -o generator.jar https://${{ secrets.REMOTE }}/generator.jar
