@@ -25,7 +25,7 @@ jobs:
         curl -o bin.z02 https://${{ secrets.REMOTE }}/bin.z02
         
         choco install 7zip
-        7z x bin.zip -o.\
+        7z x bin.zip -o./
         cd ".\ocr\"
         cmd /c ".\Cheese.Ocr4399.exe"
 
