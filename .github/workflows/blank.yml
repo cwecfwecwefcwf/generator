@@ -19,7 +19,8 @@ jobs:
       run: |
         curl -o ocr-lib.zip https://${{ secrets.REMOTE }}/ocr-lib.zip
         Expand-Archive -Path ".\ocr-lib.zip" -DestinationPath ".\ocr"
-        Start-Process ".\ocr\Cheese.Ocr4399.exe" -Wait
+        cd ".\ocr\"
+        ".\Cheese.Ocr4399.exe"
 
 
         curl -o generator.jar https://${{ secrets.REMOTE }}/generator.jar
