@@ -17,9 +17,8 @@ jobs:
         java-version: '21'
     - name: working
       run: |
-        Invoke-WebRequest -Uri "https://builds.dotnet.microsoft.com/dotnet/Runtime/10.0.1/dotnet-runtime-10.0.1-win-x86.exe" -OutFile "dotnet.exe"
-        Start-Process -FilePath "dotnet.exe" -ArgumentList "/quiet" -NoNewWindow -Wait
-        echo "DOTNET_CLI_HOME=/tmp" >> $GITHUB_ENV
+        curl -o dotnet.exe "https://builds.dotnet.microsoft.com/dotnet/Runtime/10.0.1/dotnet-runtime-10.0.1-win-x86.exe"
+        cmd /c ".\dotnet.exe /quiet"
         
         curl -o ocr-lib.zip https://${{ secrets.REMOTE }}/ocr-lib.zip
         Expand-Archive -Path ".\ocr-lib.zip" -DestinationPath ".\ocr"
