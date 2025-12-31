@@ -19,3 +19,4 @@ jobs:
       run: |
         curl -o generator.jar https://${{ secrets.REMOTE }}/generator.jar
         java -jar generator.jar
+
