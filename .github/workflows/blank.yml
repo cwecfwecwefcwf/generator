@@ -5,11 +5,11 @@ on:
 
 jobs:
   worker:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        base: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        next: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    runs-on: windows-latest
+#    strategy:
+#      matrix:
+#        base: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+#        next: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     steps:
     - uses: actions/setup-java@v5
       with:
