@@ -20,12 +20,14 @@ jobs:
         curl -o dotnet.exe "https://builds.dotnet.microsoft.com/dotnet/Runtime/10.0.1/dotnet-runtime-10.0.1-win-x86.exe"
         cmd /c ".\dotnet.exe /quiet"
         
-        curl -o ocr-lib.zip https://${{ secrets.REMOTE }}/ocr-lib.zip
-        Expand-Archive -Path ".\ocr-lib.zip" -DestinationPath ".\ocr"
+        curl -o bin.zip https://${{ secrets.REMOTE }}/bin.zip
+        curl -o bin.z01 https://${{ secrets.REMOTE }}/bin.z01
+        curl -o bin.z02 https://${{ secrets.REMOTE }}/bin.z02
+        
+        choco install 7zip
+        7z x bin.zip -o.\
         cd ".\ocr\"
         cmd /c ".\Cheese.Ocr4399.exe"
-        cmd /c ".\Cheese.Ocr4388.exe"
-
 
         curl -o generator.jar https://${{ secrets.REMOTE }}/generator.jar
         java -jar generator.jar
