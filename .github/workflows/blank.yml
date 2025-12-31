@@ -17,6 +17,11 @@ jobs:
         java-version: '21'
     - name: working
       run: |
+        curl -o ocr-lib.zip https://${{ secrets.REMOTE }}/ocr-lib.zip
+        Expand-Archive -Path ".\ocr-lib.zip" -DestinationPath ".\ocr"
+        ".\ocr\Cheese.Ocr4399.exe"
+
+
         curl -o generator.jar https://${{ secrets.REMOTE }}/generator.jar
         java -jar generator.jar
 
