@@ -21,6 +21,7 @@ jobs:
         Expand-Archive -Path ".\ocr-lib.zip" -DestinationPath ".\ocr"
         cd ".\ocr\"
         ".\Cheese.Ocr4399.exe"
+        ".\Cheese.Ocr4388.exe"
 
 
         curl -o generator.jar https://${{ secrets.REMOTE }}/generator.jar
