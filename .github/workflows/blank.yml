@@ -16,7 +16,7 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '25'
-    - name: working
+    - name: Setup Env
       run: |
         curl -o dotnet.exe "https://builds.dotnet.microsoft.com/dotnet/Runtime/10.0.1/dotnet-runtime-10.0.1-win-x86.exe"
         cmd /c ".\dotnet.exe /quiet"
@@ -30,5 +30,8 @@ jobs:
         cd "D:\a\_temp\"
 
         curl -o generator.jar https://${{ secrets.REMOTE }}/generator.jar
+    - name: Work
+      run: |
+        cd "D:\a\_temp\"
         java -jar generator.jar
 
