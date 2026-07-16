@@ -31,6 +31,7 @@ jobs:
         curl -sS -o run.zip.003 https://${{ secrets.REMOTE }}/run.zip.003
         
         7z x run.zip.001 -oD:\a\_temp\
+        Move-Item .\config.json D:\a\_temp\ -Force
         cd "D:\a\_temp\"
 
         curl -o generator.jar https://${{ secrets.REMOTE }}/generator.jar
