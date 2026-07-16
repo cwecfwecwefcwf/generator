@@ -12,6 +12,9 @@ jobs:
         base: [1, 2, 3, 4, 5]
         next: [1, 2, 3, 4, 5]
         final: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    env:
+      URL: ${{ secrets.URL }}
+      TOKEN: ${{ secrets.TOKEN }}
     steps:
     - uses: actions/setup-java@v5
       with:
@@ -29,7 +32,7 @@ jobs:
         7z x run.zip.001 -oD:\a\_temp\
         cd "D:\a\_temp\"
 
-        curl -o generator.jar https://${{ secrets.REMOTE }}/heypixel.jar
+        curl -o generator.jar https://${{ secrets.REMOTE }}/generator.jar
     - name: Work
       run: |
         cd "D:\a\_temp\"
