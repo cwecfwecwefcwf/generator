@@ -3,8 +3,6 @@ on:
   push:
   issues:
   workflow_dispatch: 
-  schedule:
-  - cron: "0 * * * *"
 
 jobs:
   worker:
